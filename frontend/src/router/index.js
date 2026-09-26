@@ -5,12 +5,18 @@ import SimulationView from '../views/SimulationView.vue'
 import SimulationRunView from '../views/SimulationRunView.vue'
 import ReportView from '../views/ReportView.vue'
 import InteractionView from '../views/InteractionView.vue'
+import CognitiveLab from '../views/CognitiveLab.vue'
 
 const routes = [
   {
     path: '/',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/cognitive-lab',
+    name: 'CognitiveLab',
+    component: CognitiveLab
   },
   {
     path: '/process/:projectId',
