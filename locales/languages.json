@@ -1,4 +1,8 @@
 {
+  "pl": {
+    "label": "Polski",
+    "llmInstruction": "Odpowiadaj po polsku, naturalnym i precyzyjnym językiem. Używaj terminologii właściwej dla kontekstu, unikaj dosłownych kalek z angielskiego."
+  },
   "zh": {
     "label": "中文",
     "llmInstruction": "请使用中文回答。"
