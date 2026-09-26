@@ -3,30 +3,30 @@
     <header class="lab-header">
       <button class="brand" type="button" @click="router.push('/')">MIROFISH</button>
       <div class="header-copy">
-        <span class="eyebrow">COGNITIVE LAB / MVP</span>
-        <span>Consumer perception workflow</span>
+        <span class="eyebrow">LABORATORIUM POZNAWCZE / MVP</span>
+        <span>Przebieg percepcji konsumenta</span>
       </div>
-      <button class="ghost-btn" type="button" @click="router.push('/')">← Back</button>
+      <button class="ghost-btn" type="button" @click="router.push('/')">← Wróć</button>
     </header>
 
     <main class="lab-grid">
       <section class="editor-column">
         <div class="intro-card">
           <div>
-            <span class="kicker">NEURO-INSPIRED BEHAVIORAL SIMULATION</span>
+            <span class="kicker">SYMULACJA BEHAWIORALNA INSPIROWANA NEURONAUKĄ</span>
             <h1>Od bodźca do decyzji.</h1>
             <p>
               Skonfiguruj warianty, odbiorców i pytania. Panel zbuduje protokół badania i przekaże go
-              do istniejącego pipeline’u MiroFish: ontology → graph → personas → simulation → report.
+              do istniejącego przepływu MiroFish: ontologia → graf → persony → symulacja → raport.
             </p>
           </div>
-          <span class="pipeline-chip">USES EXISTING MIROFISH ENGINE</span>
+          <span class="pipeline-chip">WYKORZYSTUJE SILNIK MIROFISH</span>
         </div>
 
         <section class="panel-card">
           <div class="section-head">
             <div><span class="section-index">01</span><h2>Badanie</h2></div>
-            <span class="section-meta">CONTEXT</span>
+            <span class="section-meta">KONTEKST</span>
           </div>
 
           <div class="form-grid two">
@@ -38,9 +38,9 @@
               <span>Typ bodźca</span>
               <select v-model="study.stimulusType">
                 <option>Opakowanie</option>
-                <option>Key visual / reklama</option>
-                <option>Claim / copy</option>
-                <option>Landing page</option>
+                <option>Motyw przewodni / reklama</option>
+                <option>Hasło / treść</option>
+                <option>Strona docelowa</option>
                 <option>Koncept produktu</option>
               </select>
             </label>
@@ -55,7 +55,7 @@
         <section class="panel-card">
           <div class="section-head">
             <div><span class="section-index">02</span><h2>Grupa badawcza</h2></div>
-            <span class="section-meta">PERSONAS</span>
+            <span class="section-meta">PERSONY</span>
           </div>
 
           <div class="segmented">
@@ -108,7 +108,7 @@
               <div class="variant-body">
                 <div class="image-box">
                   <img v-if="variant.imagePreview" :src="variant.imagePreview" alt="Preview wariantu">
-                  <div v-else class="image-placeholder">IMAGE<br>REFERENCE</div>
+                  <div v-else class="image-placeholder">REFERENCJA<br>OBRAZU</div>
                   <label class="upload-btn">
                     <input type="file" accept="image/png,image/jpeg,image/webp" @change="event => handleImage(event, variant)">
                     {{ variant.imageFileName ? 'Zmień obraz' : 'Dodaj obraz' }}
@@ -128,7 +128,7 @@
                   <div class="form-grid two compact">
                     <label>
                       <span>Kluczowe cechy wizualne</span>
-                      <input v-model="variant.visualCues" type="text" placeholder="jasne tło, duże zdjęcie produktu, zielony badge">
+                      <input v-model="variant.visualCues" type="text" placeholder="jasne tło, duże zdjęcie produktu, zielony znacznik">
                     </label>
                     <label>
                       <span>Claim / treść</span>
@@ -141,7 +141,7 @@
                   </div>
                   <label>
                     <span>Hipoteza projektowa</span>
-                    <input v-model="variant.hypothesis" type="text" placeholder="np. większy kontrast poprawi zauważalność bez utraty premium feel">
+                    <input v-model="variant.hypothesis" type="text" placeholder="np. większy kontrast poprawi zauważalność bez utraty wrażenia premium">
                   </label>
                 </div>
               </div>
@@ -149,15 +149,15 @@
           </div>
 
           <div class="warning-note">
-            <strong>Ważne:</strong> obecny bazowy MiroFish konsumuje tekst. Obraz jest tu preview/reference,
-            dlatego opis bodźca jest obowiązkowy. Moduł vision można dołożyć osobno bez ruszania reszty pipeline’u.
+            <strong>Ważne:</strong> obecny MiroFish przetwarza tekst. Obraz jest tu podglądem i referencją,
+            dlatego opis bodźca jest obowiązkowy. Moduł analizy obrazu można dołożyć osobno bez przebudowy reszty przepływu.
           </div>
         </section>
 
         <section class="panel-card">
           <div class="section-head">
-            <div><span class="section-index">04</span><h2>Workflow poznawczy</h2></div>
-            <span class="section-meta">COGNITIVE PASS</span>
+            <div><span class="section-index">04</span><h2>Przebieg poznawczy</h2></div>
+            <span class="section-meta">ETAPY POZNAWCZE</span>
           </div>
 
           <div class="stage-grid">
@@ -179,7 +179,7 @@
 
           <div class="question-list">
             <div v-for="(question, index) in study.questions" :key="index" class="question-row">
-              <input v-model="question.metric" class="metric-input" type="text" placeholder="metric">
+              <input v-model="question.metric" class="metric-input" type="text" placeholder="miara">
               <input v-model="question.prompt" type="text" placeholder="Pytanie do agenta">
               <button class="icon-btn" type="button" @click="study.questions.splice(index, 1)">×</button>
             </div>
@@ -191,7 +191,7 @@
         <button class="launch-btn" type="button" @click="launchStudy">
           <span>
             <strong>URUCHOM W MIROFISH</strong>
-            <small>zbuduj seed → ontology → graph → personas → simulation</small>
+            <small>zbuduj materiał źródłowy → ontologia → graf → persony → symulacja</small>
           </span>
           <span class="launch-arrow">→</span>
         </button>
@@ -200,7 +200,7 @@
       <aside class="workflow-column">
         <div class="sticky-panel">
           <div class="side-head">
-            <span>PERCEPTION WORKFLOW</span>
+            <span>PRZEBIEG PERCEPCJI</span>
             <strong>{{ enabledStages.length }}/{{ study.cognitiveStages.length }}</strong>
           </div>
 
@@ -215,11 +215,11 @@
           </div>
 
           <div class="summary-box">
-            <span>STUDY SNAPSHOT</span>
+            <span>PODSUMOWANIE BADANIA</span>
             <dl>
               <div><dt>Warianty</dt><dd>{{ study.variants.length }}</dd></div>
               <div><dt>Pytania</dt><dd>{{ study.questions.filter(q => q.prompt.trim()).length }}</dd></div>
-              <div><dt>Grupa</dt><dd>{{ study.audienceMode === 'targeted' ? 'target' : 'open' }}</dd></div>
+              <div><dt>Grupa</dt><dd>{{ study.audienceMode === 'targeted' ? 'docelowa' : 'otwarta' }}</dd></div>
               <div><dt>Silnik</dt><dd>MiroFish</dd></div>
             </dl>
           </div>
@@ -227,7 +227,7 @@
           <div class="model-note">
             <strong>Model interpretacji</strong>
             <p>
-              To symulacja poznawczo-behawioralna. DMN / salience / executive control są inspiracją funkcjonalną,
+              To symulacja poznawczo-behawioralna. DMN / sieć istotności / kontrola wykonawcza są inspiracją funkcjonalną,
               nie deklaracją pomiaru biologicznego.
             </p>
           </div>
@@ -269,7 +269,7 @@ const makeVariant = index => ({
 })
 
 const study = reactive({
-  projectName: 'Cognitive Design Study',
+  projectName: 'Badanie percepcji projektu',
   stimulusType: 'Opakowanie',
   objective: 'Porównać warianty i zrozumieć, co prowadzi od zauważenia bodźca do intencji zakupu i finalnego wyboru.',
   audienceMode: 'targeted',
