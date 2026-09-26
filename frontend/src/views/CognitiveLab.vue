@@ -131,7 +131,7 @@
                       <input v-model="variant.visualCues" type="text" placeholder="jasne tło, duże zdjęcie produktu, zielony znacznik">
                     </label>
                     <label>
-                      <span>Claim / treść</span>
+                      <span>Hasło / treść</span>
                       <input v-model="variant.claim" type="text" placeholder="100% naturalnych składników">
                     </label>
                   </div>
